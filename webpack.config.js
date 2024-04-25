@@ -3,6 +3,7 @@ const autoprefixer = require('autoprefixer');
 const precss = require('precss');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   resolve: {
@@ -90,6 +91,7 @@ module.exports = {
   //Например, плагин для минификации кода (во время сборки код подвергается очистке и минификации).
   //Или плагин для сборки html страницы и css кода (скрипты вставляются в html, куски css собираются в один файл).
   plugins: [
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({ filename: './style.css' }),
     new HtmlWebpackPlugin({
       template: 'index.html',
